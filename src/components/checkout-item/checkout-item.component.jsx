@@ -9,38 +9,30 @@ import {
 
 import {
   CheckoutItemContainer,
-  CheckoutItemImageContainer,
-  CheckoutItemImage,
-  CheckoutItemName,
-  CheckoutItemQuantity,
-  CheckoutItemPrice,
-  CheckoutItemQuantityArrow,
-  CheckoutItemQuantityValue
+  ImageContainer,
+  TextContainer,
+  QuantityContainer,
+  RemoveButtonContainer
 } from './checkout-item.styles';
-import './checkout-item.styles.scss';
 
 const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
   const { name, imageUrl, quantity, price } = cartItem;
 
   return (
     <CheckoutItemContainer>
-      <CheckoutItemImageContainer>
-        <CheckoutItemImage src={imageUrl} alt='item' />
-      </CheckoutItemImageContainer>
-      <CheckoutItemName>{name}</CheckoutItemName>
-      <CheckoutItemQuantity>
-        <CheckoutItemQuantityArrow onClick={() => removeItem(cartItem)}>
-          &#10094;
-        </CheckoutItemQuantityArrow>
-        <CheckoutItemQuantityValue>{quantity}</CheckoutItemQuantityValue>
-        <CheckoutItemQuantityArrow onClick={() => addItem(cartItem)}>
-          &#10095;
-        </CheckoutItemQuantityArrow>
-      </CheckoutItemQuantity>
-      <CheckoutItemPrice>{price}</CheckoutItemPrice>
-      <div className='remove-button' onClick={() => clearItem(cartItem)}>
+      <ImageContainer>
+        <img src={imageUrl} alt='item' />
+      </ImageContainer>
+      <TextContainer>{name}</TextContainer>
+      <QuantityContainer>
+        <div onClick={() => removeItem(cartItem)}>&#10094;</div>
+        <span>{quantity}</span>
+        <div onClick={() => addItem(cartItem)}>&#10095;</div>
+      </QuantityContainer>
+      <TextContainer>{price}</TextContainer>
+      <RemoveButtonContainer onClick={() => clearItem(cartItem)}>
         &#10005;
-      </div>
+      </RemoveButtonContainer>
     </CheckoutItemContainer>
   );
 };

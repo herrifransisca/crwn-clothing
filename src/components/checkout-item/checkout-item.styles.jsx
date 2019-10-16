@@ -1,9 +1,5 @@
 import styled, { css } from 'styled-components';
 
-const widthStyles = css`
-  width: 23%;
-`;
-
 export const CheckoutItemContainer = styled.div`
   width: 100%;
   display: flex;
@@ -14,33 +10,33 @@ export const CheckoutItemContainer = styled.div`
   align-items: center;
 `;
 
-export const CheckoutItemImageContainer = styled.div`
+export const ImageContainer = styled.div`
   width: 23%;
   padding-right: 15px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
-export const CheckoutItemImage = styled.img`
-  width: 100%;
-  height: 100%;
+export const TextContainer = styled.span`
+  width: 23%;
 `;
 
-export const CheckoutItemName = styled.span`
-  ${widthStyles}
-`;
-
-export const CheckoutItemQuantity = styled.span`
-  ${widthStyles}
+export const QuantityContainer = styled(TextContainer)`
   display: flex;
+
+  span {
+    padding: 0 10px;
+  }
+
+  div {
+    cursor: pointer;
+  }
 `;
 
-export const CheckoutItemQuantityValue = styled.span`
-  padding: 0 10px;
-`;
-
-export const CheckoutItemQuantityArrow = styled.div`
+export const RemoveButtonContainer = styled.div`
+  padding-left: 12px;
   cursor: pointer;
-`;
-
-export const CheckoutItemPrice = styled.span`
-  ${widthStyles}
 `;
